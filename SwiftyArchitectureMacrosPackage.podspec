@@ -36,7 +36,7 @@ TODO: Add long description of the pod here.
   xcode_config = {
     'OTHER_SWIFT_FLAGS' => <<-FLAGS.squish
     -Xfrontend -load-plugin-executable
-    -Xfrontend $(PODS_TARGET_SRCROOT)/Products/SwiftyArchitectureMacros#SwiftyArchitectureMacros
+    -Xfrontend $(PODS_ROOT)/SwiftyArchitectureMacrosPackage/Products/SwiftyArchitectureMacros#SwiftyArchitectureMacros
     FLAGS
   }
 
