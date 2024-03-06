@@ -39,7 +39,7 @@ TODO: Add long description of the pod here.
   script = <<-SCRIPT.squish
   env -i PATH="$PATH" "$SHELL" -l -c
   "swift build -c release --product SwiftyArchitectureMacros
-  --package-path \\"$PODS_TARGET_SRCROOT/SwiftyArchitectureMacros\\"
+  --package-path \\"$PODS_TARGET_SRCROOT\\"
   --scratch-path \\"#{product_folder}\\""
   SCRIPT
 
