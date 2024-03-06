@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftyArchitectureMacros}",
+            "name": "Debug SwiftyArchitectureMacros",
+            "program": "${workspaceFolder:SwiftyArchitectureMacros}/.build/debug/SwiftyArchitectureMacros",
+            "preLaunchTask": "swift: Build Debug SwiftyArchitectureMacros"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftyArchitectureMacros}",
+            "name": "Release SwiftyArchitectureMacros",
+            "program": "${workspaceFolder:SwiftyArchitectureMacros}/.build/release/SwiftyArchitectureMacros",
+            "preLaunchTask": "swift: Build Release SwiftyArchitectureMacros"
+        }
+    ]
+}
