@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '13.0'
   s.swift_versions = '5.9'
 
-  s.preserve_paths = 'Package.swift', 'Products/**/*', 'Sources/**/*'
+  s.preserve_paths = 'Package.swift', 'Products/**/*', 'Sources/**/*', 'Tests/**/*'
 
   product_folder = "${PODS_BUILD_DIR}/Products/SwiftyArchitectureMacros"
 
