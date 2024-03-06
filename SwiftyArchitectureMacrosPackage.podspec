@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'SwiftyArchitectureMacros'
+  s.name             = 'SwiftyArchitectureMacrosPackage'
   s.version          = '0.1.0'
   s.summary          = 'Swift macros provided by SwiftArchitecture.'
 
@@ -31,36 +31,16 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '13.0'
   s.swift_versions = '5.9'
 
-  s.preserve_paths = 'Package.swift', 'Sources/**/*', 'Tests/**/*'
-
-  product_folder = "${PODS_BUILD_DIR}/Products/SwiftyArchitectureMacros"
-
-  # --sdk \\"`xcrun --show-sdk-path`\\"
-  script = <<-SCRIPT.squish
-  env -i PATH="$PATH" "$SHELL" -l -c
-  "swift build -c release --product SwiftyArchitectureMacros
-  --package-path \\"$PODS_TARGET_SRCROOT\\"
-  --scratch-path \\"#{product_folder}\\""
-  SCRIPT
-
-  s.script_phase = {
-    :name => 'Build SwiftyArchitectureMacros macro plugin',
-    :script => script,
-    :input_files => Dir.glob("{Package.swift, Sources/**/*}").map {
-      |path| "$(PODS_TARGET_SRCROOT)/#{path}"
-    },
-    :output_files => ["#{product_folder}/release/SwiftyArchitectureMacros"],
-    :execution_position => :before_compile
-  }
+  s.preserve_paths = 'Products/**/*'
 
   xcode_config = {
     'OTHER_SWIFT_FLAGS' => <<-FLAGS.squish
     -Xfrontend -load-plugin-executable
-    -Xfrontend #{product_folder}/release/SwiftyArchitectureMacros#SwiftyArchitectureMacros
+    -Xfrontend $(PODS_TARGET_SRCROOT)/Products/SwiftyArchitectureMacros#SwiftyArchitectureMacros
     FLAGS
   }
+
   s.user_target_xcconfig = xcode_config # <-- add to the `Host project`.
-#  s.pod_target_xcconfig = xcode_config
 
   # s.resource_bundles = {
   #   'SwiftyArchitectureMacros' => ['SwiftyArchitectureMacros/Assets/*.png']
