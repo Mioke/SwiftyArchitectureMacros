@@ -31,6 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '13.0'
   s.swift_versions = '5.9'
 
+  s.source_files = 'Sources/MacrosDefine/*'
   s.preserve_paths = 'Products/**/*'
 
   xcode_config = {
@@ -41,6 +42,7 @@ TODO: Add long description of the pod here.
   }
 
   s.user_target_xcconfig = xcode_config # <-- add to the `Host project`.
+  s.pod_target_xcconfig = xcode_config
 
   # s.resource_bundles = {
   #   'SwiftyArchitectureMacros' => ['SwiftyArchitectureMacros/Assets/*.png']
